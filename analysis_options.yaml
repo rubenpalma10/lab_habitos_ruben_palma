@@ -1,0 +1,12 @@
+# Reglas de análisis estático recomendadas para proyectos Flutter.
+# Se usan para cumplir RT-7 (flutter analyze limpio) y RT-8 (const donde corresponda).
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
+include: package:flutter_lints/flutter.yaml
