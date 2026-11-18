@@ -2,7 +2,7 @@
 
 > **Cómo llenarla:** ejecuta cada caso en el emulador o dispositivo, escribe en *Resultado obtenido* lo que realmente pasó (no solo "ok"), guarda la captura con el nombre indicado y cambia el *Estado* a **Aprobado**, **Fallido** o **No ejecutado (motivo)**. Un caso es Aprobado solo si coincide con lo esperado, no hay excepciones en consola, tiene evidencia y se repite igual tras reiniciar la app.
 
-**Entorno:** _(dispositivo/emulador, versión de Android/iOS)_ · **Flutter:** _(salida de `flutter --version`)_ · **Fecha:** _(dd/mm/aaaa)_
+**Entorno:** Samsung Galaxy A34 (SM-A346M), Android · **Flutter:** 3.47.0 (Dart 3.13.0), Mac mini · **Fecha:** 16–17/11/2026
 
 **Datos de prueba:** usuario A `usuario.a@prueba.com` / usuario B `usuario.b@prueba.com` (contraseñas de prueba, no reales; no las incluyas en capturas).
 
@@ -10,13 +10,13 @@
 
 | ID | Flujo | Módulo | Descripción | Datos de entrada | Resultado esperado | Prueba automatizada | Resultado obtenido | Estado | Evidencia |
 |---|---|---|---|---|---|---|---|---|---|
-| CP-01 | — | Arranque | La app inicia sin errores | — | Se muestra Login (o el Panel si ya había sesión) sin excepción en consola | — | | Pendiente | `capturas-aplicacion/cp01-arranque.png` |
+| CP-01 | — | Arranque | La app inicia sin errores | — | Se muestra Login (o el Panel si ya había sesión) sin excepción en consola | — | En SM-A346M la app abrió en la pantalla de Login sin excepción en consola (tras corregir INC-004 e INC-005) | Pendiente de evidencia | `capturas-aplicacion/cp01-arranque.png` |
 | CP-02 | F1 | Auth | Inicio de sesión válido | Usuario A + contraseña correcta | Entra al Panel; AppBar "Hábitos — Cumplidos: X / 5" | `login_screen_test` CP-02, `flujo_app_test` | | Pendiente | `cp02-login-ok.png` |
 | CP-03 | F1 | Auth | Inicio de sesión inválido **(negativo)** | Usuario A + contraseña incorrecta | Mensaje "Correo o contraseña incorrectos."; sigue en Login | `login_screen_test` CP-03 | | Pendiente | `cp03-login-error.png` |
 | CP-04 | F1 | Validación | Formulario vacío / mal escrito **(negativo)** | Campos vacíos; luego `ruben@correo` y `123` | Mensajes bajo cada campo; no se llama a Firebase | `login_screen_test` CP-04, CP-04b | | Pendiente | `cp04-validacion.png` |
 | CP-05 | F4 | Navegación | Acceder a cada pantalla | Botón 🕘 Historial | Se abre "Historial" | `panel_habitos_test` CP-05 | | Pendiente | `cp05-historial.png` |
 | CP-06 | F4 | Navegación | Botón/gesto "atrás" | Atrás desde Historial | Regresa al Panel con el mismo progreso, sin cierre | `panel_habitos_test` CP-06 | | Pendiente | `cp06-atras.mp4` |
-| CP-07 | F2 | Datos | Crear entidad (progreso del día) | Usuario nuevo marca 2 hábitos | Se ve 2 / 5 y aparece `usuarios/{uid}/estado/dia_actual` en Firestore | `panel_habitos_test` P-10 / CP-07 | | Pendiente | `firebase/cp07-dia-actual.png` |
+| CP-07 | F2 | Datos | Crear entidad (progreso del día) | Usuario nuevo marca 2 hábitos | Se ve 2 / 5 y aparece `usuarios/{uid}/estado/dia_actual` en Firestore | `panel_habitos_test` P-10 / CP-07 | Al marcar un hábito con un usuario nuevo se creó `usuarios/{uid}/estado/dia_actual` (ver `firebase/firestore-estructura-usuario.png`) | Pendiente de evidencia (abrir `dia_actual` y capturar sus campos) | `firebase/cp07-dia-actual.png` |
 | CP-08 | F2 | Datos | Leer lista | Usuario con historial | Panel muestra el progreso guardado; Historial lista los días del más reciente al más antiguo | `panel_habitos_test` CP-08, `historial_screen_test` CP-08 | | Pendiente | `cp08-lectura.png` |
 | CP-09 | F3 | Datos | Actualizar entidad | Escribir "Día productivo" → Guardar nota | Tarjeta muestra la nota y el campo `nota` cambia en Firestore | `panel_habitos_test` P-8 / CP-09 | | Pendiente | `firebase/cp09-nota.png` |
 | CP-10 | F4 | Datos | Cerrar día (archivar y reiniciar) | Pulsar "Reiniciar día" con 3 cumplidos | Panel vuelve a 0 / 5; nuevo documento en `historial` con `cumplidos: 3` | `panel_habitos_test` P-10 | | Pendiente | `firebase/cp10-historial.png` |
@@ -57,13 +57,15 @@
 
 ### Salida de `flutter analyze`
 
-- **Inicial** (rama `main`, antes de los cambios): _pegar aquí_ → captura `pruebas-y-analisis/analyze-inicial.png`
-- **Final** (rama `semana16-integracion`): _pegar aquí_ → captura `pruebas-y-analisis/analyze-final.png`
+- **Inicial** (rama `semana16-integracion`, antes de generar `firebase_options.dart`): **2 errores** (INC-004).
+- **Final**: **No issues found!**
+- Texto completo: [`evidencias/pruebas-y-analisis/flutter-analyze.txt`](evidencias/pruebas-y-analisis/flutter-analyze.txt) · captura: `pruebas-y-analisis/analyze-final.png`
 
 ### Salida de `flutter test`
 
 ```
-(pegar aquí la salida completa de: flutter test)
+$ flutter test
+00:05 +35: All tests passed!
 ```
 
-Captura: `pruebas-y-analisis/flutter-test.png`
+35 pruebas (unitarias y de widget) en verde. Texto: [`evidencias/pruebas-y-analisis/flutter-test.txt`](evidencias/pruebas-y-analisis/flutter-test.txt) · captura: `pruebas-y-analisis/flutter-test.png`

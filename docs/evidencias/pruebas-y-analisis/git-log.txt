@@ -1,0 +1,71 @@
+# Historial de Git — rama semana16-integracion (generado el 17/11/2026)
+
+caf1430  17/11/2026 21:29  Ruben Palma
+    Semana16 - integracion de Auth y firestore de Firebase
+341c475  22/09/2026 21:28  Ruben Palma
+    docs: capturas de P-1, P-2, P-6 y P-10
+7adb0d1  22/09/2026 21:26  Ruben Palma
+    docs: capturas de P-1, P-2, P-6 y P-10
+63eca9a  22/09/2026 20:53  Ruben Palma
+    docs: README con variables de estado, cobertura de requerimientos y reflexion
+0ae8dcf  22/09/2026 20:51  Ruben Palma
+    test: pruebas de widget para P-1, P-6, P-8 y P-10
+55c0293  22/09/2026 20:50  Ruben Palma
+    feat: panel de habitos con StatefulWidget, setState y getters derivados
+1397217  22/09/2026 20:48  Ruben Palma
+    chore: estructura inicial del proyecto Flutter
+
+# Archivos del commit de correcciones caf1430 (INC-001, INC-002, INC-003, INC-005)
+
+caf1430 Semana16 - integracion de Auth y firestore de Firebase
+
+ .gitignore                                         |  13 +-
+ .metadata                                          |  39 ++
+ README.md                                          | 169 ++++-----
+ android/app/build.gradle.kts                       |   5 +-
+ android/settings.gradle.kts                        |   3 +
+ docs/01-declaracion-alcance.md                     |  32 ++
+ docs/02-mapa-flujos-criticos.md                    |  30 ++
+ docs/03-plantilla-pruebas.md                       |  69 ++++
+ docs/04-registro-incidencias.md                    |  83 +++++
+ docs/05-reflexion-final.md                         |   7 +
+ docs/evidencias/README.md                          |  11 +
+ .../version-inicial}/p1-inicio-parcial.png         | Bin
+ .../version-inicial}/p10-reinicio.png              | Bin
+ .../version-inicial}/p2-completado.png             | Bin
+ .../version-inicial}/p6-modo-enfoque.png           | Bin
+ docs/{capturas => evidencias/firebase}/.gitkeep    |   0
+ docs/evidencias/notificaciones-fcm/.gitkeep        |   0
+ docs/evidencias/notificaciones-fcm/NO-APLICA.md    |   1 +
+ docs/evidencias/pruebas-y-analisis/.gitkeep        |   0
+ firestore.rules                                    |  12 +
+ integration_test/flujo_principal_test.dart         |  55 +++
+ .../xcshareddata/swiftpm/Package.resolved          | 122 +++++++
+ .../xcshareddata/swiftpm/Package.resolved          | 122 +++++++
+ lib/app.dart                                       |  65 ++++
+ lib/data/auth_repository.dart                      |  58 +++
+ lib/data/firebase_auth_repository.dart             |  52 +++
+ lib/data/firestore_habitos_repository.dart         |  77 ++++
+ lib/data/habitos_repository.dart                   |  18 +
+ lib/main.dart                                      | 369 +------------------
+ lib/models/progreso_dia.dart                       | 116 ++++++
+ lib/models/registro_dia.dart                       |  50 +++
+ lib/screens/historial_screen.dart                  |  99 +++++
+ lib/screens/login_screen.dart                      | 184 ++++++++++
+ lib/screens/panel_habitos_screen.dart              | 402 +++++++++++++++++++++
+ lib/utils/validadores.dart                         |  19 +
+ macos/Flutter/GeneratedPluginRegistrant.swift      |   6 +
+ .../xcshareddata/swiftpm/Package.resolved          | 122 +++++++
+ .../xcshareddata/swiftpm/Package.resolved          | 122 +++++++
+ pubspec.lock                                       | 393 ++++++++++++++++++++
+ pubspec.yaml                                       |   9 +-
+ test/fakes/fakes.dart                              | 120 ++++++
+ test/unit/progreso_dia_test.dart                   |  86 +++++
+ test/unit/validadores_test.dart                    |  63 ++++
+ test/widget/flujo_app_test.dart                    |  61 ++++
+ test/widget/historial_screen_test.dart             |  56 +++
+ test/widget/login_screen_test.dart                 | 109 ++++++
+ test/widget/panel_habitos_test.dart                | 170 +++++++++
+ test/widget/utilidades.dart                        |  11 +
+ test/widget_test.dart                              |  83 -----
+ 49 files changed, 3157 insertions(+), 536 deletions(-)

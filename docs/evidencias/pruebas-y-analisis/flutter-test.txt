@@ -1,0 +1,5 @@
+# flutter test — salida real (Mac de Rubén, 16/11/2026, rama semana16-integracion)
+# 35 pruebas: unitarias (test/unit) + widget con fakes (test/widget)
+
+$ flutter test
+00:05 +35: All tests passed!

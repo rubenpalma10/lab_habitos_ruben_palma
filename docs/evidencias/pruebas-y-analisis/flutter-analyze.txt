@@ -1,0 +1,17 @@
+# flutter analyze — salida real (Mac de Rubén, 16/11/2026, rama semana16-integracion)
+# Ejecución 1: antes de generar lib/firebase_options.dart (INC-004)
+
+Analyzing lab_habitos_ruben_palma...                                    
+
+  error • Target of URI doesn't exist: 'firebase_options.dart'. Try creating the file referenced by the URI, or try
+         using a URI for a file that does exist • lib/main.dart:8:8 • uri_does_not_exist
+  error • Undefined name 'DefaultFirebaseOptions'. Try correcting the name to one that is defined, or defining the name
+         • lib/main.dart:13:14 • undefined_identifier
+
+2 issues found. (ran in 3.6s)
+
+# Ejecución 2: después de generar lib/firebase_options.dart (corrección de INC-004)
+
+$ flutter analyze
+Analyzing lab_habitos_ruben_palma...                                    
+No issues found! (ran in 3.4s)

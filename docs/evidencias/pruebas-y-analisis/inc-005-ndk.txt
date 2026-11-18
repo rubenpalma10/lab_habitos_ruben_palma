@@ -1,0 +1,30 @@
+# flutter run — falla de compilación Android (INC-005), extracto de flutter run -v (16/11/2026)
+
+FAILURE: Build failed with an exception.
+* Where:
+Build file '/Users/rubenpalma/Documents/UTEC/Flutter_Tecnicas de Calidad de
+software-ETPS3/Unidad_2/lab_habitos_ruben_palma/android/build.gradle.kts' line: 19
+* What went wrong:
+A problem occurred configuring project ':app'.
+> [CXX1101] NDK at /Users/rubenpalma/Library/Android/sdk/ndk/28.2.13676358 did not have a source.properties
+file
+           ┌─ Flutter Fix
+────────────────────────────────────────────────────────────────────────────────────────────────────┐
+           │     [!] This is likely due to a malformed download of the NDK.
+│
+           │     This can be fixed by deleting the local NDK copy at:
+/Users/rubenpalma/Library/Android/sdk/ndk/28.2.13676358 │
+           │     and allowing the Android Gradle Plugin to automatically re-download it.
+│
+           │
+│
+           │     If this keeps happening after a clean retry, Flutter's tool-side Android NDK provisioning
+│
+           │     may have failed or been skipped before Gradle fell back to AGP's automatic download path.
+│
+           │
+│
+
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+           
+Error: Gradle task assembleDebug failed with exit code 1

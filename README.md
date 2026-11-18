@@ -77,6 +77,7 @@ flutter test integration_test -d <emulador>    # opcional, en emulador o disposi
 
 | Atestado | Archivo |
 |---|---|
+| **Índice de atestados (10.3)** | [docs/00-atestados.md](docs/00-atestados.md) |
 | Declaración de alcance | [docs/01-declaracion-alcance.md](docs/01-declaracion-alcance.md) |
 | Mapa de flujos críticos | [docs/02-mapa-flujos-criticos.md](docs/02-mapa-flujos-criticos.md) |
 | Plantilla de pruebas | [docs/03-plantilla-pruebas.md](docs/03-plantilla-pruebas.md) |
@@ -88,8 +89,10 @@ flutter test integration_test -d <emulador>    # opcional, en emulador o disposi
 
 | Incidencia | Commit |
 |---|---|
-| INC-001 — El progreso se perdía al cerrar la app | `fix: INC-001 …` |
-| INC-002 — Lógica no probable en pruebas unitarias | `fix: INC-002 …` |
-| INC-003 — Archivos sin control en el repositorio | `fix: INC-003 …` |
+| INC-001 — El progreso se perdía al cerrar la app | `caf1430` |
+| INC-002 — Lógica no probable en pruebas unitarias | `caf1430` |
+| INC-003 — Archivos sin control en el repositorio | `caf1430` |
+| INC-004 — Faltaba `firebase_options.dart` (analyze con 2 errores) | Local, no versionable por contener claves |
+| INC-005 — NDK 28.2 corrupto al compilar en Android | `caf1430` |
 
 Detalle, causa y prueba de regresión de cada una en [docs/04-registro-incidencias.md](docs/04-registro-incidencias.md).

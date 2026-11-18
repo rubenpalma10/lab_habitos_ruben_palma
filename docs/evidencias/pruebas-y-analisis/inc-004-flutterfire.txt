@@ -1,0 +1,21 @@
+# flutterfire configure — salida real (16/11/2026). Causa de INC-004
+
+flutterfire configure --project=habitos-ruben
+Package flutterfire_cli is currently active at version 1.5.0.
+Downloading packages... . (1.1s)
+The package flutterfire_cli is already activated at newest available version.
+To recompile executables, first run `dart pub global deactivate flutterfire_cli`.
+Installed executable flutterfire.
+Activated flutterfire_cli 1.5.0.
+i Found 4 Firebase projects. Selecting project habitos-ruben.                                                           
+✔ Which platforms should your configuration support (use arrow keys & space to select)? · android, ios, macos, web      
+i Firebase android app com.example.lab_habitos_ruben_palma is not registered on Firebase project habitos-ruben.         
+i Registered a new Firebase android app on Firebase project habitos-ruben.                                              
+i Firebase ios app com.example.labHabitosRubenPalma is not registered on Firebase project habitos-ruben.                
+i Registered a new Firebase ios app on Firebase project habitos-ruben.                                                  
+i Firebase macos app com.example.labHabitosRubenPalma registered.                                                       
+i Firebase web app lab_habitos_ruben_palma (web) is not registered on Firebase project habitos-ruben.                   
+i Registered a new Firebase web app on Firebase project habitos-ruben.                                                  
+Exception: /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'
