@@ -4,7 +4,18 @@
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
-pubspec.lock
+# pubspec.lock SÍ se versiona: es una app y las dependencias deben ser reproducibles (INC-003).
+
+# Configuración de Firebase con claves del proyecto: no se sube (ver README).
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+firebase.json
+.firebaserc
+
+# Archivos sueltos / respaldos (INC-003)
+*.zip
 
 # Editores
 .idea/

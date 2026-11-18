@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
@@ -7,7 +10,7 @@ plugins {
 android {
     namespace = "com.example.lab_habitos_ruben_palma"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.1.12297006" // INC-005: el NDK 28.2 quedó corrupto; se usa el 27.1 ya instalado
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
